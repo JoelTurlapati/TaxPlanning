@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax Planning & Preparation | Affinity Private Tax</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal:       #1D7080;
+      --teal-dark:  #145568;
+      --teal-med:   #2A8A9C;
+      --teal-light: #E6F4F7;
+      --teal-pale:  #F0F8FA;
+      --gray:       #6B7280;
+      --gray-dark:  #374151;
+      --gray-deep:  #1F2937;
+      --white:      #FFFFFF;
+      --off-white:  #F8FAFB;
+      --gold:       #C9A84C;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--gray-dark); background: var(--white); overflow-x: hidden; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    /* ── NAV ─────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(29,112,128,.12);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 72px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-brand { display: flex; flex-direction: column; line-height: 1; }
+    .nav-brand span:first-child { font-family:'Inter',sans-serif; font-weight:700; font-size:15px; letter-spacing:3px; color:var(--gray); }
+    .nav-brand span:last-child  { font-family:'Inter',sans-serif; font-weight:600; font-size:10px; letter-spacing:2px; color:var(--teal); text-transform:uppercase; }
+    .nav-links { display:flex; gap:32px; list-style:none; }
+    .nav-links a { font-size:13px; font-weight:500; color:var(--gray-dark); text-decoration:none; letter-spacing:.5px; transition:color .2s; }
+    .nav-links a:hover { color:var(--teal); }
+    .nav-cta { background:var(--teal); color:#fff; padding:10px 22px; border-radius:4px; font-size:13px; font-weight:600; text-decoration:none; letter-spacing:.5px; transition:background .2s; }
+    .nav-cta:hover { background:var(--teal-dark); }
+
+    /* ── HERO ────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0D4A58 0%, #1D7080 45%, #2A8A9C 75%, #1D7080 100%);
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden; padding: 120px 5% 80px;
+    }
+    .hero-bg-shapes { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+    .hero-circle { position:absolute; border-radius:50%; opacity:.06; background:#fff; }
+    .hero-circle.c1 { width:600px;height:600px; top:-150px;right:-100px; }
+    .hero-circle.c2 { width:350px;height:350px; bottom:-80px;left:5%; }
+    .hero-circle.c3 { width:200px;height:200px; top:30%;left:40%; }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+                        linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-content { position:relative; z-index:2; max-width:900px; }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2);
+      border-radius:100px; padding:6px 16px; margin-bottom:28px;
+    }
+    .hero-eyebrow span { font-size:12px; font-weight:600; color:#fff; letter-spacing:1.5px; text-transform:uppercase; }
+    .hero-eyebrow-dot { width:6px;height:6px;border-radius:50%;background:var(--gold); }
+    .hero h1 { font-size:clamp(38px,5vw,68px); color:#fff; font-weight:700; margin-bottom:12px; }
+    .hero h1 em { font-style:normal; color:rgba(255,255,255,.65); }
+    .hero-sub-heading { font-family:'Inter',sans-serif; font-size:clamp(16px,2vw,22px); color:rgba(255,255,255,.8); font-weight:300; margin-bottom:24px; letter-spacing:.5px; }
+    .hero-divider { width:60px; height:2px; background:var(--gold); margin:0 0 28px; }
+    .hero-body { font-size:16px; line-height:1.8; color:rgba(255,255,255,.75); max-width:680px; margin-bottom:36px; }
+    .hero-tags { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:44px; }
+    .hero-tag {
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2);
+      color:#fff; font-size:12px; font-weight:500; padding:7px 16px;
+      border-radius:100px; letter-spacing:.5px;
+    }
+    .hero-buttons { display:flex; flex-wrap:wrap; gap:14px; }
+    .btn-primary { background:#fff; color:var(--teal-dark); padding:14px 32px; border-radius:4px; font-weight:700; font-size:14px; text-decoration:none; letter-spacing:.5px; transition:all .2s; }
+    .btn-primary:hover { background:var(--teal-light); }
+    .btn-secondary { background:transparent; color:#fff; border:2px solid rgba(255,255,255,.5); padding:14px 32px; border-radius:4px; font-weight:600; font-size:14px; text-decoration:none; letter-spacing:.5px; transition:all .2s; }
+    .btn-secondary:hover { border-color:#fff; background:rgba(255,255,255,.08); }
+    .hero-stats { display:flex; gap:48px; margin-top:60px; padding-top:40px; border-top:1px solid rgba(255,255,255,.15); }
+    .hero-stat-num { font-family:'Playfair Display',serif; font-size:36px; font-weight:700; color:#fff; }
+    .hero-stat-label { font-size:12px; color:rgba(255,255,255,.6); letter-spacing:1px; text-transform:uppercase; margin-top:4px; }
+    .hero-scroll { position:absolute; bottom:36px; left:50%; transform:translateX(-50%); display:flex;flex-direction:column;align-items:center;gap:8px; }
+    .hero-scroll span { font-size:11px; color:rgba(255,255,255,.5); letter-spacing:2px; text-transform:uppercase; }
+    .scroll-arrow { width:20px;height:20px;border-right:2px solid rgba(255,255,255,.4);border-bottom:2px solid rgba(255,255,255,.4);transform:rotate(45deg);animation:bounce 1.5s infinite; }
+    @keyframes bounce { 0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)} }
+
+    /* ── SECTION BASE ──────────────────────────────────────────── */
+    section { padding: 100px 5%; }
+    .section-label { font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:var(--teal); margin-bottom:12px; }
+    .section-title { font-size:clamp(28px,3.5vw,44px); color:var(--gray-deep); margin-bottom:16px; }
+    .section-title em { font-style:normal; color:var(--teal); }
+    .section-lead { font-size:17px; line-height:1.8; color:var(--gray); max-width:680px; margin-bottom:48px; }
+    .section-divider { width:48px; height:3px; background:var(--teal); border-radius:2px; margin:16px 0 32px; }
+
+    /* ── WHO WE SERVE ──────────────────────────────────────────── */
+    .serve { background:var(--gray-deep); }
+    .serve-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+    .serve .section-title { color:#fff; }
+    .serve .section-lead { color:rgba(255,255,255,.65); }
+    .serve-cards { display:grid; gap:20px; }
+    .serve-card { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:28px 32px; transition:border-color .3s; }
+    .serve-card:hover { border-color:var(--teal-med); }
+    .serve-card-icon { width:40px;height:40px;background:var(--teal);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px; }
+    .serve-card h4 { font-size:16px;color:#fff;margin-bottom:8px; }
+    .serve-card p { font-size:14px;color:rgba(255,255,255,.55);line-height:1.7; }
+    .serve-not { background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:28px 32px;margin-top:8px; }
+    .serve-not-title { font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px; }
+    .serve-not ul { list-style:none;display:flex;flex-direction:column;gap:8px; }
+    .serve-not li { font-size:13px;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:10px; }
+    .serve-not li::before { content:'—';color:var(--gold);font-weight:700;flex-shrink:0; }
+
+    /* ── YEAR-ROUND PLANNING ──────────────────────────────────── */
+    .planning { background: var(--teal-pale); }
+    .planning-inner { max-width:1200px; margin:0 auto; }
+    .planning-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+    .planning-visual { position:relative; }
+    .planning-card-stack { display:flex;flex-direction:column;gap:14px; }
+    .p-card {
+      background:#fff; border-radius:12px; padding:20px 24px;
+      box-shadow:0 4px 20px rgba(29,112,128,.08);
+      display:flex;align-items:center;gap:16px;
+      border-left:4px solid var(--teal);
+      transition:transform .3s,box-shadow .3s;
+    }
+    .p-card:hover { transform:translateX(6px);box-shadow:0 8px 32px rgba(29,112,128,.14); }
+    .p-card:nth-child(even) { border-left-color:var(--gold); margin-left:24px; }
+    .p-card-icon { width:42px;height:42px;border-radius:8px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;flex-shrink:0; }
+    .p-card:nth-child(even) .p-card-icon { background:#FFF8EC; }
+    .p-card h4 { font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--gray-dark);margin-bottom:3px; }
+    .p-card p { font-size:12px;color:var(--gray);line-height:1.5; }
+    .planning-quote {
+      background:var(--teal); color:#fff; border-radius:16px;
+      padding:36px 40px; margin-top:48px;
+      position:relative; overflow:hidden;
+    }
+    .planning-quote::before { content:'"'; position:absolute;top:-20px;left:20px;font-size:140px;font-family:'Playfair Display',serif;color:rgba(255,255,255,.08);line-height:1; }
+    .planning-quote p { font-family:'Playfair Display',serif;font-size:20px;line-height:1.6;position:relative;z-index:1; }
+
+    /* ── HOLISTIPLAN ──────────────────────────────────────────── */
+    .tech { background:#fff; }
+    .tech-inner { max-width:1200px;margin:0 auto; }
+    .tech-grid { display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center; }
+    .tech-features { display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px; }
+    .tech-feat {
+      background:var(--teal-light);border-radius:10px;padding:20px;
+      display:flex;flex-direction:column;gap:10px;
+      border:1px solid rgba(29,112,128,.1);
+      transition:background .3s;
+    }
+    .tech-feat:hover { background:#D4EEF3; }
+    .tech-feat-icon { width:36px;height:36px;background:var(--teal);border-radius:7px;display:flex;align-items:center;justify-content:center; }
+    .tech-feat h4 { font-family:'Inter',sans-serif;font-size:13px;font-weight:700;color:var(--teal-dark);letter-spacing:.3px; }
+    .tech-feat p { font-size:12px;color:var(--gray);line-height:1.6; }
+    .tech-visual { background:linear-gradient(135deg,var(--teal-dark),var(--teal-med));border-radius:20px;padding:48px 40px;color:#fff;position:relative;overflow:hidden; }
+    .tech-visual::before { content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.05); }
+    .tech-visual-label { font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:12px; }
+    .tech-visual h3 { font-size:28px;color:#fff;margin-bottom:24px; }
+    .tech-metric { display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1); }
+    .tech-metric:last-child { border-bottom:none; }
+    .tech-metric-label { font-size:13px;color:rgba(255,255,255,.7); }
+    .tech-metric-value { font-family:'Playfair Display',serif;font-size:20px;color:#fff; }
+    .tech-metric-bar { height:4px;border-radius:2px;background:rgba(255,255,255,.15);margin-top:6px;overflow:hidden;width:100%; }
+    .tech-metric-fill { height:100%;border-radius:2px;background:var(--gold); }
+
+    /* ── RETIREMENT ──────────────────────────────────────────── */
+    .retirement { background:var(--off-white); }
+    .retirement-inner { max-width:1200px;margin:0 auto; }
+    .retirement-grid { display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center; }
+    .retirement-topics { display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px; }
+    .ret-topic { background:#fff;border-radius:10px;padding:18px 20px;border:1px solid #E5EDF0;transition:border-color .3s,transform .3s; }
+    .ret-topic:hover { border-color:var(--teal);transform:translateY(-2px); }
+    .ret-topic h4 { font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--gray-dark);margin-bottom:4px; }
+    .ret-topic p { font-size:12px;color:var(--gray); }
+    .ret-topic-dot { width:8px;height:8px;border-radius:50%;background:var(--teal);margin-bottom:10px; }
+    .retirement-visual {
+      background:var(--gray-deep);border-radius:20px;padding:40px;
+      display:flex;flex-direction:column;gap:0;overflow:hidden;position:relative;
+    }
+    .ret-timeline { position:relative;padding-left:28px; }
+    .ret-timeline::before { content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:rgba(255,255,255,.12); }
+    .ret-step { position:relative;padding-bottom:28px; }
+    .ret-step:last-child { padding-bottom:0; }
+    .ret-dot { position:absolute;left:-28px;top:4px;width:16px;height:16px;border-radius:50%;background:var(--teal);border:2px solid var(--teal-dark); }
+    .ret-step-year { font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--teal-med);margin-bottom:4px; }
+    .ret-step h4 { font-size:14px;color:#fff;margin-bottom:4px; }
+    .ret-step p { font-size:12px;color:rgba(255,255,255,.5);line-height:1.6; }
+    .retirement-visual h3 { font-size:18px;color:#fff;margin-bottom:32px; }
+    .retirement-visual-label { font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal-med);margin-bottom:8px; }
+
+    /* ── WEALTH COORDINATION ────────────────────────────────── */
+    .wealth { background:linear-gradient(160deg, #0D4A58 0%,#1D7080 60%,#2A8A9C 100%); }
+    .wealth-inner { max-width:1200px;margin:0 auto; }
+    .wealth .section-title { color:#fff; }
+    .wealth .section-lead { color:rgba(255,255,255,.65); }
+    .wealth .section-label { color:rgba(255,255,255,.6); }
+    .wealth-spokes { display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:16px; }
+    .spoke-card { background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:32px;transition:background .3s; }
+    .spoke-card:hover { background:rgba(255,255,255,.12); }
+    .spoke-icon { width:52px;height:52px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin-bottom:18px; }
+    .spoke-card h4 { font-size:17px;color:#fff;margin-bottom:10px; }
+    .spoke-card p { font-size:14px;color:rgba(255,255,255,.55);line-height:1.7; }
+
+    /* ── WHAT CLIENTS RECEIVE ────────────────────────────────── */
+    .deliverables { background:#fff; }
+    .deliverables-inner { max-width:1200px;margin:0 auto; }
+    .deliverables-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:16px; }
+    .deliverable-item {
+      background:var(--teal-pale);border-radius:12px;padding:24px;
+      border:1px solid rgba(29,112,128,.1);
+      display:flex;align-items:flex-start;gap:14px;
+      transition:border-color .3s,transform .3s;
+    }
+    .deliverable-item:hover { border-color:var(--teal);transform:translateY(-3px); }
+    .deliverable-check { width:28px;height:28px;border-radius:6px;background:var(--teal);flex-shrink:0;display:flex;align-items:center;justify-content:center; }
+    .deliverable-item h4 { font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--teal-dark);margin-bottom:4px; }
+    .deliverable-item p { font-size:12px;color:var(--gray);line-height:1.5; }
+
+    /* ── COMPARISON ─────────────────────────────────────────── */
+    .compare { background:var(--gray-deep); }
+    .compare-inner { max-width:1100px;margin:0 auto; }
+    .compare .section-title { color:#fff; }
+    .compare .section-label { color:rgba(255,255,255,.5); }
+    .compare-table { display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;margin-top:40px;box-shadow:0 20px 60px rgba(0,0,0,.3); }
+    .compare-col { padding:40px; }
+    .compare-col.traditional { background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:16px 0 0 16px; }
+    .compare-col.affinity { background:var(--teal);border-radius:0 16px 16px 0; }
+    .compare-col-title { font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12); }
+    .compare-col.traditional .compare-col-title { color:rgba(255,255,255,.4); }
+    .compare-col.affinity .compare-col-title { color:rgba(255,255,255,.7); }
+    .compare-items { display:flex;flex-direction:column;gap:14px; }
+    .compare-item { display:flex;align-items:center;gap:12px;font-size:14px; }
+    .compare-col.traditional .compare-item { color:rgba(255,255,255,.4); }
+    .compare-col.affinity .compare-item { color:#fff; font-weight:500; }
+    .ci-icon { width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center; }
+    .compare-col.traditional .ci-icon { background:rgba(255,255,255,.08); }
+    .compare-col.affinity .ci-icon { background:rgba(255,255,255,.2); }
+
+    /* ── IDEAL CLIENTS ──────────────────────────────────────── */
+    .ideal { background:var(--off-white); }
+    .ideal-inner { max-width:1200px;margin:0 auto; }
+    .ideal-profiles { display:flex;flex-wrap:wrap;gap:16px;margin-top:16px; }
+    .profile-chip {
+      display:flex;align-items:center;gap:12px;
+      background:#fff;border:1px solid #DDE6E9;border-radius:100px;
+      padding:14px 24px;transition:all .3s;cursor:default;
+    }
+    .profile-chip:hover { border-color:var(--teal);background:var(--teal-light);transform:translateY(-2px); }
+    .profile-chip-icon { width:36px;height:36px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center; }
+    .profile-chip:hover .profile-chip-icon { background:#fff; }
+    .profile-chip span { font-size:14px;font-weight:600;color:var(--gray-dark); }
+
+    /* ── PREPARATION ────────────────────────────────────────── */
+    .preparation { background:var(--teal-light); }
+    .preparation-inner { max-width:1200px;margin:0 auto; }
+    .prep-grid { display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center; }
+    .prep-items { display:flex;flex-direction:column;gap:20px;margin-top:16px; }
+    .prep-item { background:#fff;border-radius:10px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;border-left:3px solid var(--teal); box-shadow:0 2px 12px rgba(29,112,128,.06); }
+    .prep-item-num { font-family:'Playfair Display',serif;font-size:24px;color:var(--teal);font-weight:700;line-height:1;flex-shrink:0;width:30px; }
+    .prep-item h4 { font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--gray-dark);margin-bottom:4px; }
+    .prep-item p { font-size:13px;color:var(--gray);line-height:1.6; }
+    .prep-quote { background:var(--gray-deep);border-radius:16px;padding:40px;color:#fff; }
+    .prep-quote-mark { font-family:'Playfair Display',serif;font-size:72px;color:var(--teal-med);line-height:.8;margin-bottom:16px; }
+    .prep-quote p { font-family:'Playfair Display',serif;font-size:22px;line-height:1.6;margin-bottom:20px; }
+    .prep-quote-sub { font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.5px; }
+
+    /* ── CTA ────────────────────────────────────────────────── */
+    .cta { background:linear-gradient(135deg,var(--teal-dark) 0%,var(--teal) 50%,var(--teal-med) 100%); padding:100px 5%;text-align:center;position:relative;overflow:hidden; }
+    .cta::before { content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:50px 50px; }
+    .cta-inner { position:relative;z-index:1;max-width:720px;margin:0 auto; }
+    .cta-eyebrow { font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px; }
+    .cta h2 { font-size:clamp(30px,4vw,52px);color:#fff;margin-bottom:20px; }
+    .cta p { font-size:17px;line-height:1.8;color:rgba(255,255,255,.7);margin-bottom:40px; }
+    .cta-buttons { display:flex;flex-wrap:wrap;gap:14px;justify-content:center; }
+    .cta-btn-primary { background:#fff;color:var(--teal-dark);padding:16px 36px;border-radius:4px;font-weight:700;font-size:14px;text-decoration:none;letter-spacing:.5px;transition:all .2s; }
+    .cta-btn-primary:hover { background:var(--teal-light);transform:translateY(-2px); }
+    .cta-btn-outline { background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);padding:16px 36px;border-radius:4px;font-weight:600;font-size:14px;text-decoration:none;letter-spacing:.5px;transition:all .2s; }
+    .cta-btn-outline:hover { border-color:#fff;background:rgba(255,255,255,.08); }
+
+    /* ── FOOTER ─────────────────────────────────────────────── */
+    footer { background:var(--gray-deep);padding:48px 5% 32px; }
+    .footer-inner { max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.08); }
+    .footer-brand span:first-child { font-family:'Inter',sans-serif;font-weight:700;font-size:14px;letter-spacing:3px;color:var(--gray);display:block; }
+    .footer-brand span:last-child { font-family:'Inter',sans-serif;font-weight:600;font-size:9px;letter-spacing:2px;color:var(--teal-med);text-transform:uppercase; }
+    .footer-note { font-size:12px;color:rgba(255,255,255,.25);max-width:600px;line-height:1.7;margin-top:20px;text-align:center;width:100%; }
+
+    /* ── UTILITIES ──────────────────────────────────────────── */
+    .max-w { max-width:1200px;margin:0 auto; }
+    .text-center { text-align:center; }
+    .text-center .section-divider { margin:16px auto 32px; }
+    .text-center .section-lead { margin-left:auto;margin-right:auto; }
+    @media(max-width:900px) {
+      nav .nav-links { display:none; }
+      .serve-inner,.planning-grid,.tech-grid,.retirement-grid,.prep-grid { grid-template-columns:1fr; gap:40px; }
+      .wealth-spokes { grid-template-columns:1fr 1fr; }
+      .hero-stats { flex-wrap:wrap;gap:28px; }
+      .compare-table { grid-template-columns:1fr; }
+      .compare-col.traditional { border-radius:16px 16px 0 0; }
+      .compare-col.affinity { border-radius:0 0 16px 16px; }
+    }
+    @media(max-width:600px) {
+      .tech-features { grid-template-columns:1fr; }
+      .retirement-topics { grid-template-columns:1fr; }
+      .wealth-spokes { grid-template-columns:1fr; }
+      .deliverables-grid { grid-template-columns:1fr; }
+    }
+
+    /* ── FADE-IN ANIMATION ─────────────────────────────────── */
+    .fade-in { opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease; }
+    .fade-in.visible { opacity:1;transform:none; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════  NAV  ═══════════════════════════ -->
+<nav>
+  <div class="nav-logo">
+    <svg class="nav-logo-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:32px;height:32px;">
+      <polygon points="20,2 38,36 2,36" fill="none" stroke="#1D7080" stroke-width="2"/>
+      <polygon points="20,8 33,32 7,32" fill="#1D7080" opacity=".3"/>
+      <polygon points="20,14 28,30 12,30" fill="#1D7080" opacity=".6"/>
+      <polygon points="20,20 24,28 16,28" fill="#1D7080"/>
+    </svg>
+    <div class="nav-brand">
+      <span>AFFINITY</span>
+      <span>PRIVATE TAX</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#planning">Tax Planning</a></li>
+    <li><a href="#technology">Technology</a></li>
+    <li><a href="#retirement">Retirement</a></li>
+    <li><a href="#deliverables">What You Receive</a></li>
+    <li><a href="#compare">Our Difference</a></li>
+  </ul>
+  <a href="https://www.tagplanning.com/contact" target="_blank" class="nav-cta">Schedule Consultation</a>
+</nav>
+
+
+<!-- ═══════════════════════════  HERO  ══════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-bg-shapes">
+    <div class="hero-grid"></div>
+    <div class="hero-circle c1"></div>
+    <div class="hero-circle c2"></div>
+    <div class="hero-circle c3"></div>
+  </div>
+
+  <!-- Decorative SVG triangle motif -->
+  <svg style="position:absolute;right:6%;top:50%;transform:translateY(-50%);opacity:.12;pointer-events:none" width="420" height="480" viewBox="0 0 420 480" fill="none">
+    <polygon points="210,10 410,460 10,460" stroke="white" stroke-width="1.5" fill="none"/>
+    <polygon points="210,60 375,430 45,430" stroke="white" stroke-width="1" fill="none" opacity=".7"/>
+    <polygon points="210,110 340,400 80,400" stroke="white" stroke-width="1" fill="none" opacity=".5"/>
+    <polygon points="210,160 305,370 115,370" stroke="white" stroke-width="1" fill="none" opacity=".35"/>
+    <polygon points="210,200 276,346 144,346" fill="rgba(255,255,255,0.04)" stroke="white" stroke-width="1" opacity=".25"/>
+  </svg>
+
+  <div class="hero-content fade-in">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      <span>Affinity Private Tax — Individuals &amp; Families</span>
+    </div>
+
+    <h1>Strategic Tax Planning<br><em>for Individuals &amp; Families</em></h1>
+    <p class="hero-sub-heading">Integrated Planning Through Affinity Private Tax</p>
+    <div class="hero-divider"></div>
+
+    <p class="hero-body">
+      Most tax preparers focus only on filing returns after the year is over. Affinity Private Tax helps individuals, families, retirees, executives, and business owners proactively evaluate tax decisions throughout the year — as part of a larger wealth planning relationship.
+    </p>
+
+    <div class="hero-tags">
+      <span class="hero-tag">Year-Round Tax Planning</span>
+      <span class="hero-tag">Retirement Tax Optimization</span>
+      <span class="hero-tag">Roth Conversion Analysis</span>
+      <span class="hero-tag">Tax-Efficient Wealth Planning</span>
+      <span class="hero-tag">Integrated Financial Coordination</span>
+      <span class="hero-tag">Proactive Tax Guidance</span>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="#cta" class="btn-primary">Schedule a Consultation</a>
+      <a href="#planning" class="btn-secondary">Explore Tax Planning</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">365</div>
+        <div class="hero-stat-label">Days of Planning</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Proactive</div>
+        <div class="hero-stat-label">Not Reactive</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">Integrated</div>
+        <div class="hero-stat-label">Wealth &amp; Tax</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-arrow"></div>
+    <span>Discover More</span>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  WHO WE SERVE  ══════════════════ -->
+<section class="serve" id="serve">
+  <div class="serve-inner">
+    <div class="fade-in">
+      <p class="section-label" style="color:rgba(255,255,255,.4)">Exclusively Available To</p>
+      <h2 class="section-title" style="color:#fff">A Coordinated Planning Relationship — Not a Public Tax Storefront</h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">Affinity Private Tax was created to solve a problem successful families face every day: their tax return, retirement strategy, investments, estate plan, and business decisions are handled separately with little coordination between advisors.</p>
+      <div class="serve-not">
+        <div class="serve-not-title">This Service Is Not Intended For</div>
+        <ul>
+          <li>One-time or transactional tax return preparation</li>
+          <li>Clients seeking tax filing only</li>
+          <li>Businesses outside an Outsourced CFO relationship</li>
+          <li>Individuals not engaged in Affinity Wealth planning</li>
+          <li>Unsupported or incomplete bookkeeping relationships</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="serve-cards fade-in">
+      <div class="serve-card">
+        <div class="serve-card-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Affinity Wealth Total Wealth Management Clients</h4>
+        <p>Individuals, families, retirees, executives, and business owners engaged in an ongoing Affinity Wealth planning relationship receive fully integrated tax planning and preparation.</p>
+      </div>
+      <div class="serve-card">
+        <div class="serve-card-icon">
+          <svg width="22" height="22" fill="none" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="#fff" stroke-width="1.5"/><line x1="12" y1="12" x2="12" y2="16" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="14" x2="14" y2="14" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Outsourced CFO Business Clients</h4>
+        <p>Business owners utilizing the Outsourced CFO service receive coordinated bookkeeping, business tax preparation, owner-level tax planning, and comprehensive financial oversight — all from one integrated relationship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  YEAR-ROUND PLANNING  ═══════════ -->
+<section class="planning" id="planning">
+  <div class="planning-inner">
+    <div class="planning-grid">
+      <div class="fade-in">
+        <p class="section-label">Primary Value Proposition</p>
+        <h2 class="section-title">Year-Round <em>Tax Planning</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-lead">Most individuals only speak to a CPA once a year — after financial decisions have already been made. This service changes that approach entirely. Tax planning should happen before decisions are made, not after the year closes.</p>
+
+        <p style="font-size:14px;line-height:1.8;color:var(--gray);margin-bottom:28px;">Your tax strategy touches every dimension of your financial life: retirement income, Roth conversion windows, investment decisions, charitable strategies, business compensation, and estate coordination. Planning proactively creates better outcomes than reacting after the tax year ends.</p>
+
+        <div class="planning-quote">
+          <p>"Planning before decisions are made creates better outcomes than reacting after the tax year ends."</p>
+        </div>
+      </div>
+
+      <div class="planning-visual fade-in">
+        <div class="planning-card-stack">
+          <div class="p-card">
+            <div class="p-card-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#1D7080" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div><h4>Tax-Efficient Income Planning</h4><p>Optimize income recognition, withholding adjustments, and tax bracket utilization throughout the year.</p></div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#C9A84C" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div><h4>Estimated Tax Planning</h4><p>Quarterly projection reviews to prevent underpayment penalties and manage cash flow with precision.</p></div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div><h4>Roth Conversion Analysis</h4><p>Identify favorable tax windows for Roth conversions before retirement income changes the calculus.</p></div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#C9A84C" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <div><h4>Capital Gains Planning</h4><p>Strategic timing of investment sales to control recognition and minimize overall tax impact.</p></div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="7" r="4" stroke="#1D7080" stroke-width="1.5"/></svg>
+            </div>
+            <div><h4>Deduction Optimization &amp; Charitable Strategies</h4><p>Identify and coordinate deduction strategies aligned with your giving goals and income levels.</p></div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-icon">
+              <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#C9A84C" stroke-width="1.5"/><path d="M3 9h18M9 21V9" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div><h4>Year-End Tax Bracket Management</h4><p>Systematic reviews before December 31st to capture opportunities and execute strategies before they expire.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  TECHNOLOGY  ════════════════════ -->
+<section class="tech" id="technology">
+  <div class="tech-inner">
+    <div class="tech-grid">
+      <div class="tech-visual fade-in">
+        <div class="tech-visual-label">Planning Technology</div>
+        <h3>Holistiplan &amp; Tax Simulation</h3>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div class="tech-metric">
+            <div>
+              <div class="tech-metric-label">Roth Conversion Modeling</div>
+              <div class="tech-metric-bar"><div class="tech-metric-fill" style="width:88%"></div></div>
+            </div>
+            <div class="tech-metric-value">+88%</div>
+          </div>
+          <div class="tech-metric">
+            <div>
+              <div class="tech-metric-label">Scenario Analysis Depth</div>
+              <div class="tech-metric-bar"><div class="tech-metric-fill" style="width:95%"></div></div>
+            </div>
+            <div class="tech-metric-value">+95%</div>
+          </div>
+          <div class="tech-metric">
+            <div>
+              <div class="tech-metric-label">Retirement Forecast Accuracy</div>
+              <div class="tech-metric-bar"><div class="tech-metric-fill" style="width:92%"></div></div>
+            </div>
+            <div class="tech-metric-value">+92%</div>
+          </div>
+          <div class="tech-metric">
+            <div>
+              <div class="tech-metric-label">Strategic Tax Forecasting</div>
+              <div class="tech-metric-bar"><div class="tech-metric-fill" style="width:96%"></div></div>
+            </div>
+            <div class="tech-metric-value">+96%</div>
+          </div>
+        </div>
+        <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);">
+          <p style="font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;">Modern tax simulation software allows strategies to be modeled and evaluated <em style="color:rgba(255,255,255,.8);font-style:normal;">before implementation</em> — not after consequences are locked in.</p>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <p class="section-label">Differentiating Technology</p>
+        <h2 class="section-title">Tax Simulation &amp; <em>Strategic Modeling</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-lead">Affinity Private Tax uses modern planning technology to model potential outcomes and evaluate strategic decisions proactively — before they become irreversible financial events.</p>
+
+        <div class="tech-features">
+          <div class="tech-feat">
+            <div class="tech-feat-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2zm0 0V9a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10m-6 0a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2m0 0V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Mock Tax Return Modeling</h4>
+            <p>See projected outcomes before year-end decisions are made.</p>
+          </div>
+          <div class="tech-feat">
+            <div class="tech-feat-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#1D7080" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Scenario Analysis</h4>
+            <p>Compare multiple planning strategies side-by-side across years.</p>
+          </div>
+          <div class="tech-feat">
+            <div class="tech-feat-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="6" stroke="#1D7080" stroke-width="1.5"/></svg>
+            </div>
+            <h4>Roth Conversion Modeling</h4>
+            <p>Identify optimal conversion amounts and timing windows precisely.</p>
+          </div>
+          <div class="tech-feat">
+            <div class="tech-feat-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h4>Retirement Distribution Forecasting</h4>
+            <p>Multi-year income projections across all retirement income sources.</p>
+          </div>
+          <div class="tech-feat">
+            <div class="tech-feat-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" stroke="#1D7080" stroke-width="1.5"/><line x1="16" y1="2" x2="16" y2="6" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="#1D7080" stroke-width="1.5"/></svg>
+            </div>
+            <h4>Tax Projection Reports</h4>
+            <p>Forward-looking tax estimates with actionable planning recommendations.</p>
+          </div>
+          <div class="tech-feat">
+            <div class="tech-feat-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h4>Strategic Tax Forecasting</h4>
+            <p>Multi-year strategic outlook to anticipate and position for future tax changes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  RETIREMENT TAX  ════════════════ -->
+<section class="retirement" id="retirement">
+  <div class="retirement-inner">
+    <div class="retirement-grid">
+      <div class="fade-in">
+        <p class="section-label">Retirement Integration</p>
+        <h2 class="section-title">Retirement <em>Tax Strategies</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-lead">Retirement planning is not only about investments — it is equally about tax efficiency. How income is structured, timed, and drawn down in retirement determines how much wealth is actually kept.</p>
+
+        <div class="retirement-topics">
+          <div class="ret-topic">
+            <div class="ret-topic-dot"></div>
+            <h4>Roth Conversion Strategies</h4>
+            <p>Identify multi-year conversion windows before RMDs begin</p>
+          </div>
+          <div class="ret-topic">
+            <div class="ret-topic-dot"></div>
+            <h4>Withdrawal Sequencing</h4>
+            <p>Optimal account draw-down order to minimize lifetime taxes</p>
+          </div>
+          <div class="ret-topic">
+            <div class="ret-topic-dot"></div>
+            <h4>IRA Distribution Planning</h4>
+            <p>Coordinate distributions with income needs and bracket management</p>
+          </div>
+          <div class="ret-topic">
+            <div class="ret-topic-dot"></div>
+            <h4>Social Security Coordination</h4>
+            <p>Tax-efficient timing and optimization of Social Security benefits</p>
+          </div>
+          <div class="ret-topic">
+            <div class="ret-topic-dot"></div>
+            <h4>Medicare IRMAA Planning</h4>
+            <p>Manage income thresholds to control Medicare premium surcharges</p>
+          </div>
+          <div class="ret-topic">
+            <div class="ret-topic-dot"></div>
+            <h4>RMD Planning</h4>
+            <p>Required Minimum Distribution strategies including QCD opportunities</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="retirement-visual fade-in">
+        <div class="retirement-visual-label">Retirement Planning Timeline</div>
+        <h3>A Multi-Decade Tax Strategy</h3>
+        <div class="ret-timeline">
+          <div class="ret-step">
+            <div class="ret-dot"></div>
+            <div class="ret-step-year">Pre-Retirement</div>
+            <h4>Roth Conversion Window</h4>
+            <p>Evaluate bracket opportunities before retirement income layers in. Strategic conversions before Social Security and RMDs commence.</p>
+          </div>
+          <div class="ret-step">
+            <div class="ret-dot"></div>
+            <div class="ret-step-year">Early Retirement</div>
+            <h4>Income Sequencing &amp; Gap Years</h4>
+            <p>Manage income strategically during low-income years. QCD planning, capital gains harvesting, and IRMAA management.</p>
+          </div>
+          <div class="ret-step">
+            <div class="ret-dot"></div>
+            <div class="ret-step-year">RMD Onset (Age 73+)</div>
+            <h4>Distribution Coordination</h4>
+            <p>Coordinate mandatory RMDs with other income to prevent bracket creep and unnecessary Medicare surcharges.</p>
+          </div>
+          <div class="ret-step">
+            <div class="ret-dot"></div>
+            <div class="ret-step-year">Estate Transition</div>
+            <h4>Inherited IRA &amp; Legacy Planning</h4>
+            <p>Integrate estate coordination with beneficiary tax planning to maximize wealth transfer efficiency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  WEALTH COORDINATION  ══════════ -->
+<section class="wealth" id="coordination">
+  <div class="wealth-inner">
+    <div class="text-center fade-in" style="margin-bottom:56px;">
+      <p class="section-label">Integrated Financial Coordination</p>
+      <h2 class="section-title">Tax-Efficient <em style="color:rgba(255,255,255,.6)">Wealth Coordination</em></h2>
+      <div class="section-divider" style="background:rgba(255,255,255,.3);margin:16px auto 24px;"></div>
+      <p class="section-lead" style="color:rgba(255,255,255,.65);">Affinity Private Tax works as part of a coordinated planning relationship — connecting your tax strategy with every dimension of your financial life. Siloed advice creates gaps. Coordinated advice creates efficiency.</p>
+    </div>
+    <div class="wealth-spokes">
+      <div class="spoke-card fade-in">
+        <div class="spoke-icon">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Investment Planning</h4>
+        <p>Asset location strategy, tax-loss harvesting coordination, and capital gain recognition aligned with your tax picture.</p>
+      </div>
+      <div class="spoke-card fade-in">
+        <div class="spoke-icon">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#fff" stroke-width="1.5"/><circle cx="9" cy="7" r="4" stroke="#fff" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Estate Coordination</h4>
+        <p>Beneficiary planning, trust coordination, and estate transfer strategies integrated with income tax planning.</p>
+      </div>
+      <div class="spoke-card fade-in">
+        <div class="spoke-icon">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h4>Charitable Planning</h4>
+        <p>DAF strategies, QCDs, and charitable giving structures that maximize after-tax impact on your giving goals.</p>
+      </div>
+      <div class="spoke-card fade-in">
+        <div class="spoke-icon">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Retirement Planning</h4>
+        <p>Year-round coordination between retirement contributions, withdrawals, conversions, and long-term tax projections.</p>
+      </div>
+      <div class="spoke-card fade-in">
+        <div class="spoke-icon">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#fff" stroke-width="1.5"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="#fff" stroke-width="1.5"/></svg>
+        </div>
+        <h4>Business-Owner Planning</h4>
+        <p>Entity structure review, compensation optimization, pass-through income planning, and qualified business income deductions.</p>
+      </div>
+      <div class="spoke-card fade-in">
+        <div class="spoke-icon">
+          <svg width="26" height="26" fill="none" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h4>Cash Flow &amp; Compensation</h4>
+        <p>Tax-efficient compensation structures, deferred compensation analysis, and executive benefit coordination.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  DELIVERABLES  ══════════════════ -->
+<section class="deliverables" id="deliverables">
+  <div class="deliverables-inner">
+    <div class="text-center fade-in">
+      <p class="section-label">What You Receive</p>
+      <h2 class="section-title">A Premium Year-Round <em>Planning Experience</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">Every engagement is structured around proactive planning deliverables — not just annual tax returns. Here is what an integrated Affinity Private Tax relationship provides.</p>
+    </div>
+    <div class="deliverables-grid">
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Year-Round Tax Reviews</h4><p>Ongoing monitoring of your tax position throughout the calendar year.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Tax Simulations</h4><p>Holistiplan-powered mock returns modeling decisions before they occur.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Strategic Planning Meetings</h4><p>Structured review sessions aligned with financial events and milestones.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>W-2 Withholding Reviews</h4><p>Annual withholding calibration to avoid underpayment or excessive overpayment.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Retirement Tax Analysis</h4><p>Multi-year retirement income modeling with bracket management strategies.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Roth Conversion Analysis</h4><p>Annual evaluation of conversion opportunities across your planning horizon.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Estimated Tax Planning</h4><p>Quarterly estimated payment guidance coordinated with cash flow and income.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Tax Projection Reports</h4><p>Documented forward-looking estimates with actionable recommendations.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Capital Gains Planning</h4><p>Strategic investment sale timing and tax-loss harvesting coordination.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Year-End Planning Reviews</h4><p>Comprehensive Q4 analysis to execute all available year-end strategies.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Federal &amp; State Tax Preparation</h4><p>Coordinated filing built on the planning work completed throughout the year.</p></div>
+      </div>
+      <div class="deliverable-item fade-in">
+        <div class="deliverable-check">
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div><h4>Ongoing Tax Coordination</h4><p>Continuous alignment between your tax strategy and broader financial plan.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  COMPARISON  ════════════════════ -->
+<section class="compare" id="compare">
+  <div class="compare-inner">
+    <div class="text-center fade-in">
+      <p class="section-label" style="color:rgba(255,255,255,.4)">Why This Is Different</p>
+      <h2 class="section-title" style="color:#fff">Traditional Filing vs.<br><em>Integrated Tax Planning</em></h2>
+    </div>
+    <div class="compare-table fade-in">
+      <div class="compare-col traditional">
+        <div class="compare-col-title">Traditional Tax Preparation</div>
+        <div class="compare-items">
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            Reactive — discussions happen after the year closes
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            Once-per-year filing engagement
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            Compliance and return preparation only
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            Little coordination with financial advisors
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            No retirement tax modeling or forecasting
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            No Roth conversion or capital gain strategy
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><line x1="18" y1="6" x2="6" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            Drop off your documents &amp; return later
+          </div>
+        </div>
+      </div>
+      <div class="compare-col affinity">
+        <div class="compare-col-title">Affinity Private Tax Approach</div>
+        <div class="compare-items">
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Proactive — planning happens before decisions are made
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Year-round engagement and monitoring
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Strategic advisory integrated with wealth planning
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Full coordination with Affinity Wealth advisors
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Multi-year retirement tax modeling &amp; forecasting
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            Roth conversions, capital gains, &amp; bracket management
+          </div>
+          <div class="compare-item">
+            <div class="ci-icon">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            An ongoing planning relationship, not a transaction
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  IDEAL CLIENTS  ═════════════════ -->
+<section class="ideal" id="ideal">
+  <div class="ideal-inner">
+    <div class="fade-in">
+      <p class="section-label">Designed For</p>
+      <h2 class="section-title">Who This Is <em>Designed For</em></h2>
+      <div class="section-divider"></div>
+      <p class="section-lead">Affinity Private Tax is designed for individuals and families whose financial lives are complex enough to benefit from coordinated, year-round tax planning — not a once-a-year filing transaction.</p>
+    </div>
+    <div class="ideal-profiles fade-in">
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" stroke="#1D7080" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <span>Affinity Wealth Clients</span>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#1D7080" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <span>Retirees &amp; Pre-Retirees</span>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" stroke="#1D7080" stroke-width="1.5"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" stroke="#1D7080" stroke-width="1.5"/></svg>
+        </div>
+        <span>Business Owners</span>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z" stroke="#1D7080" stroke-width="1.5"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" stroke="#1D7080" stroke-width="1.5"/></svg>
+        </div>
+        <span>Executives &amp; Professionals</span>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <span>High-Income Households</span>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#1D7080" stroke-width="1.5"/><circle cx="9" cy="7" r="4" stroke="#1D7080" stroke-width="1.5"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <span>Families with Complex Finances</span>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="#1D7080" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Multiple Income Sources</span>
+      </div>
+      <div class="profile-chip">
+        <div class="profile-chip-icon">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="#1D7080" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <span>Clients Seeking Coordinated Guidance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════  PREPARATION  ═══════════════════ -->
+<section class="preparation" id="preparation">
+  <div class="preparation-inner">
+    <div class="prep-grid">
+      <div class="fade-in">
+        <p class="section-label">The Execution Layer</p>
+        <h2 class="section-title">Tax Preparation Built on <em>Proactive Planning</em></h2>
+        <div class="section-divider"></div>
+        <p class="section-lead" style="margin-bottom:32px;">Tax preparation at Affinity Private Tax is not where the work begins — it is where year-round planning culminates. Effective returns begin with decisions made throughout the year.</p>
+        <div class="prep-items">
+          <div class="prep-item">
+            <div class="prep-item-num">01</div>
+            <div><h4>Federal &amp; State Tax Filing</h4><p>Comprehensive coordinated preparation for individuals, families, and business owners with accuracy and full planning context.</p></div>
+          </div>
+          <div class="prep-item">
+            <div class="prep-item-num">02</div>
+            <div><h4>Integrated Planning &amp; Filing</h4><p>Returns reflect decisions made throughout the year — not a first look at your financial picture in February.</p></div>
+          </div>
+          <div class="prep-item">
+            <div class="prep-item-num">03</div>
+            <div><h4>Ongoing Tax Oversight</h4><p>Continuous review between planning meetings and filing ensures nothing is overlooked or left unaddressed.</p></div>
+          </div>
+          <div class="prep-item">
+            <div class="prep-item-num">04</div>
+            <div><h4>Strategic Coordination</h4><p>Every return is built on a foundation of proactive planning, coordinated with your broader Affinity Wealth relationship.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="prep-quote fade-in">
+        <div class="prep-quote-mark">"</div>
+        <p>Effective tax returns begin with proactive planning throughout the year.</p>
+        <div class="prep-quote-sub">— Affinity Private Tax Planning Philosophy</div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);">
+          <p style="font-size:14px;color:rgba(255,255,255,.5);line-height:1.8;">Tax preparation is the execution layer — the culmination of year-round reviews, simulations, and strategic decisions made in coordination with your entire financial plan. By the time we file, there should be no surprises.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- ═══════════════════════════  FOOTER  ════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span>AFFINITY</span>
+      <span>Private Tax</span>
+    </div>
+    <div style="font-size:13px;color:rgba(255,255,255,.3);line-height:1.8;max-width:480px;">
+      Affinity Private Tax is an integrated tax planning and preparation service available exclusively to qualifying Affinity Wealth Total Wealth Management clients and select Outsourced CFO business relationships.
+    </div>
+    <div style="display:flex;gap:24px;">
+      <a href="#planning" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#4AA8B8'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Tax Planning</a>
+      <a href="#technology" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#4AA8B8'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Technology</a>
+      <a href="#retirement" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#4AA8B8'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Retirement</a>
+      <a href="#cta" style="font-size:12px;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#4AA8B8'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Contact</a>
+    </div>
+  </div>
+  <p class="footer-note">© 2025 Affinity Private Tax. Tax planning and preparation services available exclusively through qualifying advisory relationships. This material is for informational purposes only and does not constitute tax, legal, or investment advice.</p>
+</footer>
+
+
+<script>
+  // Intersection Observer for fade-in animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Nav transparency on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 40 ? '0 2px 24px rgba(29,112,128,.1)' : 'none';
+  });
+</script>
+</body>
+</html>
